@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Blue Clínica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        h1 { color: #004E98; text-align: center; font-weight: 300; margin-bottom: 30px; }
+        label { font-weight: 600; font-size: 14px; color: #555; display: block; margin-bottom: 5px; margin-top: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; box-sizing: border-box; }
+        input:focus { border-color: #004E98; outline: none; }
+        button { background: #004E98; color: white; border: none; width: 100%; padding: 15px; margin-top: 30px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 16px; }
+        button:hover { background: #003366; }
+        .success { text-align: center; color: #28a745; padding: 40px; }
+        .success h2 { font-size: 24px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if sucesso %}
+            <div class="success">
+                <h2>✓ Recebido, {{ nome_paciente }}!</h2>
+                <p>Seus dados foram enviados com segurança.</p>
+            </div>
+        {% else %}
+            <h1>Blue Clínica</h1>
+            <form action="/enviar" method="POST">
+                <label>Nome Completo</label><input type="text" name="nome" required>
+                <label>CPF</label><input type="text" name="cpf">
+                <label>RG</label><input type="text" name="rg">
+                <label>Data de Nascimento</label><input type="date" name="nascimento">
+                <label>Profissão</label><input type="text" name="profissao">
+                <label>Estado Civil</label>
+                <select name="estado_civil">
+                    <option value="">Selecione...</option>
+                    <option value="Solteiro">Solteiro(a)</option>
+                    <option value="Casado">Casado(a)</option>
+                    <option value="Divorciado">Divorciado(a)</option>
+                </select>
+                <label>WhatsApp</label><input type="text" name="telefone" required>
+                <label>Email</label><input type="email" name="email">
+                <label>Instagram</label><input type="text" name="instagram">
+                <label>Endereço</label><input type="text" name="endereco">
+                <label>CEP</label><input type="text" name="cep">
+                <label>Objetivo da Consulta</label><textarea name="objetivo" rows="3"></textarea>
+                <label>Como nos encontrou?</label>
+                <select name="como_encontrou">
+                    <option value="Instagram">Instagram</option>
+                    <option value="Indicacao">Indicação</option>
+                    <option value="Google">Google</option>
+                </select>
+                <label>Quem indicou? (Se houver)</label><input type="text" name="quem_indicou">
+                <label>Plano de Saúde</label><input type="text" name="plano">
+                <button type="submit">ENVIAR CADASTRO SEGURO</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>
