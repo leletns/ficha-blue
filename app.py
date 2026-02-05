@@ -8,7 +8,7 @@ app.secret_key = "blue_clinica_secret_key_secure"
 
 # --- CONFIGURAÇÃO ---
 # Coloque aqui o link do seu Google Apps Script (o mesmo do passo anterior)
-GOOGLE_SHEET_URL = "COLE_AQUI_SUA_URL_DO_APPS_SCRIPT"
+GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxzV_gAwhgjtSUF3xrTJgBiEwpAzRQPOF0PH7lwnF5aLisvMBA51GXEtHQaDwBUuGxX/exec"
 
 @app.route('/')
 def home():
